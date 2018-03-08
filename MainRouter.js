@@ -2,16 +2,22 @@ import HomeScreen from "./HomeScreen";
 import SettingsScreen from "./Settings";
 import React from 'react';
 import {DrawerNavigator, TabBarBottom, TabNavigator} from 'react-navigation';
-import SideMenu from "./SlideMenu";
 import Page1 from "./Page1";
 import Page2 from "./Page2";
 import Page3 from "./Page3";
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Dummy from "./Dummy";
+import DrawerContainer from "./DrawerContainer";
 
 const TabStack = TabNavigator({
-    Home: {screen: HomeScreen},
-    Settings: {screen: SettingsScreen},
+    Home: {
+        screen: HomeScreen,
+
+
+    },
+    Settings: {
+        screen: SettingsScreen,
+
+    },
 
 
 }, {
@@ -26,7 +32,9 @@ const TabStack = TabNavigator({
             }
             return <Ionicons name={iconName} size={25} color={tintColor}/>;
         },
+
     }),
+
     tabBarOptions: {
         activeTintColor: 'tomato',
         inactiveTintColor: 'gray',
@@ -59,7 +67,7 @@ export default DrawerNavigator({
     },
 
 }, {
-    contentComponent: SideMenu,
+    contentComponent: DrawerContainer,
     drawerWidth: 300,
     navigationOptions: {
         headerMode: 'screen'
